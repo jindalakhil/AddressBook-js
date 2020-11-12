@@ -222,6 +222,9 @@ function personCountByState(state){
     listState=addressBookArray.filter(contact=> contact.state==state);
     return listState.reduce(count=> count+1,0);
 }
+function sortByPersonFirstName(){
+    addressBookArray.sort((person1, person2) => person1.fName.localeCompare(person2.fName));
+}
 try{
 let addressBookData0 = new AddressBookData("Mehakjit", "Singh", "Streetabc", "Patiala", "Punjab", "147001", "91 9999999999", "mehak@gmail.com")
 let addressBookData1 = new AddressBookData("Test", "Test", "Streetabc", "Testcity", "Testsate", "151001", "91 9999999998", "test@gmail.com");
@@ -247,3 +250,6 @@ console.log("Count PersonContact by City");
 console.log(personCountByCity("Patiala"));
 console.log("Count PersonContact by by State");
 console.log(personCountByState("Teststatefirst"));
+console.log("After sorting");
+sortByPersonFirstName();
+console.log(addressBookArray)
