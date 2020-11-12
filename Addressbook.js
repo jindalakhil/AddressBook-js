@@ -231,6 +231,7 @@ console.log(addressBookArray);
 // console.log("after deletion")
 // console.log(addressBookArray);
 console.log("Total contacts: " + getCount())
+console.log("View person by city or state")
 console.log(getPersonByCityOrState("Patiala", "Punjab"))
 console.log(getPersonByCityOrState("Patiala", "Teststate"))
 console.log(getPersonByCityOrState("0", "Teststate"))
