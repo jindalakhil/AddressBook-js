@@ -1,16 +1,15 @@
 class AddressBookData{
 
     //constructor
-    constructor(...params){
-        this.fName=params[0];
-        this.lName=params[1];
-        this.address=params[2];
-        this.city=params[3];
-        this.state=params[4];
-        this.zip=params[5];
-        this.phNo=params[6];
-        this.email=params[7];
-
+    constructor(...args){
+        this.fName=args[0];
+        this.lName=args[1];
+        this.address=args[2];
+        this.city=args[3];
+        this.state=args[4];
+        this.zip=args[5];
+        this.phNo=args[6];
+        this.email=args[7];
     }
 
     //getter and setter method
@@ -181,15 +180,38 @@ function editDetails(fName,lName){
     }
 }
 
+function deleteContact(fName,lName){
+    let contact = checkExists(fName,lName);
+    if(contact === undefined){
+        console.log("No such Contact")
+        return;
+    }
+    else{
+        for(i=0;i<addressBookArray.length;i++){
+            if(addressBookArray[i].fName == fName && addressBookArray[i].lName == lName && i<addressBookArray.length-1){
+                addressBookArray.splice(i,1);
+                return;
+            }
+            else if(addressBookArray[i].fName == fName && addressBookArray[i].lName == lName && i==addressBookArray.length-1){
+                addressBookArray.pop();
+            }
+        }
+    }
+}
+
 try{
-let addressBookData = new AddressBookData("Mehakjit", "Singh", "Streetabc", "Patiala", "Punjab", "147001", "91 9999999999", "mehak@gmail.com")
+let addressBookData0 = new AddressBookData("Mehakjit", "Singh", "Streetabc", "Patiala", "Punjab", "147001", "91 9999999999", "mehak@gmail.com")
 let addressBookData1 = new AddressBookData("Test", "Test", "Streetabc", "Testcity", "Testsate", "151001", "91 9999999998", "test@gmail.com");
-addressBookArray.push(addressBookData)
-addressBookArray.push(addressBookData1)
+let addressBookData2 = new AddressBookData("Testfirst", "Testfirst", "Streetabcd", "Testcityfirst", "Testsatefirst", "151002", "91 9999999997", "test1@gmail.com");
+addressBookArray.push(addressBookData0);
+addressBookArray.push(addressBookData1);
+addressBookArray.push(addressBookData2);
 }
 catch(e){
     console.log(e);
 }
 console.log(addressBookArray);
 editDetails("Test","Test");
+deleteContact("Test","Test");
+console.log("after deletion")
 console.log(addressBookArray);
