@@ -114,6 +114,7 @@ function checkExists(fName, lName){
     return contactDetails;
 }
 
+//Add Contact
 let addressBookArray = new Array()
 function editDetails(fName,lName){
     let contact = checkExists(fName,lName);
