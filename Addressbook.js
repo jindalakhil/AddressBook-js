@@ -225,10 +225,19 @@ function personCountByState(state){
 function sortByPersonFirstName(){
     addressBookArray.sort((person1, person2) => person1.fName.localeCompare(person2.fName));
 }
+function sortByCity(){
+    addressBookArray.sort((person1, person2) => person1.city.localeCompare(person2.city));
+}
+function sortByState(){
+    addressBookArray.sort((person1, person2) => person1.state.localeCompare(person2.state));
+}
+function sortByZip(){
+    addressBookArray.sort((person1, person2) => person1.zip-person2.zip);
+}
 try{
 let addressBookData0 = new AddressBookData("Mehakjit", "Singh", "Streetabc", "Patiala", "Punjab", "147001", "91 9999999999", "mehak@gmail.com")
-let addressBookData1 = new AddressBookData("Test", "Test", "Streetabc", "Testcity", "Testsate", "151001", "91 9999999998", "test@gmail.com");
-let addressBookData2 = new AddressBookData("Testfirst", "Testfrist", "Streetabcd", "Testcityfirst", "Testsatefirst", "151002", "91 9999999997", "test1@gmail.com");
+let addressBookData1 = new AddressBookData("Aest", "Test", "Streetabc", "Testcity", "Restsate", "151001", "91 9999999998", "test@gmail.com");
+let addressBookData2 = new AddressBookData("Bestfirst", "Testfrist", "Streetabcd", "Testcityfirst", "Testsatefirst", "147006", "91 9999999997", "test1@gmail.com");
 addDetails(addressBookData0);
 addDetails(addressBookData1);
 addDetails(addressBookData2);
@@ -253,3 +262,12 @@ console.log(personCountByState("Teststatefirst"));
 console.log("After sorting");
 sortByPersonFirstName();
 console.log(addressBookArray)
+console.log("After sorting by city");
+sortByCity();
+console.log(addressBookArray);
+console.log("After sorting by state");
+sortByState();
+console.log(addressBookArray);
+console.log("After sorting by zip");
+sortByZip();
+console.log(addressBookArray); 
