@@ -104,10 +104,15 @@ class AddressBookData{
         return "FirstName = " + this.fName + ", LastName = " + this.lName + ", Address = " + this.address + ", City = " + this.city + ", State = " + this.state + ", Zipcode = " + this.zip + ", PhoneNo = " + this.phNo + ", Email = " + this.email
     }
 }
+
+let addressBookArray = new Array()
 try{
 let addressBookData = new AddressBookData("Mehakjit", "Singh", "Streetabc", "Patiala", "Punjab", "147001", "91 9999999999", "mehak@gmail.com")
-console.log(addressBookData.toString())
+let addressBookData1 = new AddressBookData("Test", "Test", "Streetabc", "Testcity", "Testsate", "151001", "91 9999999998", "test@gmail.com");
+addressBookArray.push(addressBookData)
+addressBookArray.push(addressBookData1)
 }
 catch(e){
     console.log(e);
 }
+console.log(addressBookArray)
