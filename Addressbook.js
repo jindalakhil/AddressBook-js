@@ -113,7 +113,7 @@ function checkExists(fName, lName){
     return contactDetails;
 }
 
-//Add Contact
+//Edit Contact
 let addressBookArray = new Array()
 function editDetails(fName,lName){
     let contact = checkExists(fName,lName);
@@ -131,7 +131,7 @@ function editDetails(fName,lName){
         console.log("7.Edit phone number");
         console.log("8.Edit email");
         const prompt = require("prompt-sync")();
-        let option = parseInt(prompt("Choose a num"));
+        let option = parseInt(prompt("Choose a num : "));
         switch(option){
             case 1:
                 fName = prompt("Enter Updated Firstname");
@@ -199,6 +199,10 @@ function deleteContact(fName,lName){
     }
 }
 
+function getCount(){
+    return addressBookArray.reduce(count=> count+1,0);
+}
+
 try{
 let addressBookData0 = new AddressBookData("Mehakjit", "Singh", "Streetabc", "Patiala", "Punjab", "147001", "91 9999999999", "mehak@gmail.com")
 let addressBookData1 = new AddressBookData("Test", "Test", "Streetabc", "Testcity", "Testsate", "151001", "91 9999999998", "test@gmail.com");
@@ -215,3 +219,4 @@ editDetails("Test","Test");
 deleteContact("Test","Test");
 console.log("after deletion")
 console.log(addressBookArray);
+console.log("Total contacts: " + getCount())
